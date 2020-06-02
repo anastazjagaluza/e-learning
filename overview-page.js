@@ -1,5 +1,4 @@
 import { LitElement, html, css, unsafeCSS } from 'lit-element';
-import './nav-bar.js';
 import './topic-overview.js';
 import 'regenerator-runtime/runtime';
 
@@ -21,13 +20,23 @@ static get styles(){
       text-align: center;
       width: 40%;
       height: auto;
+      color: #444444;
     }
     #topics {
       width: 100%;
+      height: 50%;
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
       align-content: flex-start;
+    }
+    header{
+      height: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+        align-items: center;
+      padding-top: 4rem;
     }
       `}
     
@@ -40,36 +49,34 @@ static get styles(){
     firstUpdated(){
       super.firstUpdated();
       this.getAllLessons();
-      this.lessons = [
-        {"lessonId": "1.1",
-        "lessonName": "first lesson"},
-        {"lessonId": "1.2",
-        "lessonName": "helo world"},
-        {"lessonName": "it's me",
-          "lessonId": "2.3"}
-      ];
+      this.lessons = [];
       console.log(this.lessons);
       this.requestUpdate();
     }
 
     async getAllLessons(){
-      let resp = await fetch("http://localhost/elearning/get-overview.php");
+      let resp = await fetch("http://localhost:3001/overview");
       this.data = await resp.json();
-      console.table(this.data);
+      let topics = [];
+      for(const elem of this.data){
+        topics[elem.topicId] = topics[elem.topicId] || [];
+        topics[elem.topicId].push([]);
+        topics[elem.topicId][0].push({ "lessonName": elem.lessonName, "lessonId": elem.lessonId });
+        topics[elem.topicId].topicName = elem.topicName;
+        topics[elem.topicId].topicId = elem.topicId;
+      }
+      this.data = topics;
       this.requestUpdate();
     }
 
   render() {
     return html`
+    <header id="top">
     <h1>Overview of your progress</h1>
+  </header>
     <div id="topics">
-      <topic-overview .lessons=${this.lessons} topicId="1" topicName="Topic 1"></topic-overview>
-      <topic-overview .lessons=${this.lessons} topicId="2" topicName="Topic 2"></topic-overview>
-      <topic-overview .lessons=${this.lessons} topicId="3" topicName="Topic 3"></topic-overview>
-      <topic-overview .lessons=${this.lessons} topicId="4" topicName="Topic 4"></topic-overview>
-      <topic-overview .lessons=${this.lessons} topicId="5" topicName="Topic 5"></topic-overview>
-      <topic-overview .lessons=${this.lessons} topicId="6" topicName="Topic 6"></topic-overview>
-      <topic-overview .lessons=${this.lessons} topicId="7" topicName="Topic 7"></topic-overview>
+       ${this.data.map(topic=>
+        html`<topic-overview .lessons=${topic[0]} topicId="${topic.topicId}" topicName="${topic.topicName}"></topic-overview>`)}
     </div>
     `;
   }

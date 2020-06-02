@@ -41,7 +41,7 @@ static get styles(){
       font-family: var(--main-font);
       font-weight: 100;
       text-decoration: underline;
-      margin-top: 3rem;
+      margin-top: 4.6rem;
     }
     #left > p {
       font-family: var(--main-font);
@@ -67,7 +67,7 @@ static get styles(){
       </div>
       <div id="right">
         <sign-in id="signin" signup titletext="Sign up for free..."></sign-in>
-        <h1>...or see a sample lesson</h1>
+        <h1 style="cursor: pointer" @click="${()=>{window.location.href = "lesson.html?lessonId=1.1" }}">...or see a sample lesson</h1>
       </div>
     `;
   }

@@ -4692,7 +4692,89 @@ try {
   Function("r", "regeneratorRuntime = r")(runtime);
 }
 
-},{}],"sign-in.js":[function(require,module,exports) {
+},{}],"loader-spinner.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.LoaderSpinner = void 0;
+
+var _litElement = require("lit-element");
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n    :host{\n        display: flex;\n        align-items: center;\n        justify-content: center;\n    }\n\n    #circle, #inner{\n        width: 1.6rem;\n        height: 1.6rem;\n        background: white;\n        border-radius: 50%;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        animation: spin 2s infinite ease-in-out;\n       }\n    @keyframes spin{\n        to {\n            transform: rotate(360deg);\n        }\n    }\n    #inner{\n        background: var(--main-blue);\n        width: 1.3rem;\n        height: 1.3rem;\n        border-radius: 50%;\n        border: 1px solid var(--main-blue);\n    }\n\n    "]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n      <div id=\"circle\">\n        <div id=\"inner\">\n        </div>\n      </div>\n   \n      "]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function () { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var LoaderSpinner = /*#__PURE__*/function (_LitElement) {
+  _inherits(LoaderSpinner, _LitElement);
+
+  var _super = _createSuper(LoaderSpinner);
+
+  function LoaderSpinner() {
+    _classCallCheck(this, LoaderSpinner);
+
+    return _super.call(this);
+  }
+
+  _createClass(LoaderSpinner, [{
+    key: "render",
+    value: function render() {
+      return (0, _litElement.html)(_templateObject());
+    }
+  }], [{
+    key: "styles",
+    get: function get() {
+      return (0, _litElement.css)(_templateObject2());
+    }
+  }]);
+
+  return LoaderSpinner;
+}(_litElement.LitElement);
+
+exports.LoaderSpinner = LoaderSpinner;
+customElements.define('loader-spinner', LoaderSpinner);
+},{"lit-element":"node_modules/lit-element/lit-element.js"}],"sign-in.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4704,10 +4786,32 @@ var _litElement = require("lit-element");
 
 require("regenerator-runtime/runtime");
 
+require("./loader-spinner.js");
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _templateObject6() {
+  var data = _taggedTemplateLiteral(["\n    :host{\n        font-family: var(--main-font);\n    }\n    h1{\n        text-align: center;\n        margin-bottom: -2%;\n        font-size: 270%;\n        font-weight: 100;\n    }\n    form{\n        background-color: white;\n       display: flex;\n       flex-direction: column; \n       padding: 1rem; \n    }\n    input{\n        outline: 1px solid black;\n        height: 1.4rem;\n        margin: 6% 0;\n        padding: 0 .8rem;\n   \n    }\n    input::placeholder{\n        color: black;\n    }\n    button{\n        width: auto;\n        height: auto;\n        padding: .3rem 1.3rem;\n        box-shadow: none;\n        border: none;\n        color: white;\n        font-size: 130%;\n        text-align: center;\n        background: var(--main-blue);\n        display: flex;\n        align-items: center;\n        justify-content: center;\n    }\n    #error {\n        margin-top: -1rem;\n        text-align: center;\n        color: var(--error-color);\n        font-size: 90%;\n        margin-top: .3rem;\n    }\n    "]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["<loader-spinner id=\"loader\"></loader-spinner>"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n    :host{\n        font-family: var(--main-font);\n    }\n    h1{\n        text-align: center;\n        margin-bottom: -2%;\n        font-size: 270%;\n        font-weight: 100;\n    }\n    form{\n        background-color: white;\n       display: flex;\n       flex-direction: column; \n       padding: 1rem; \n    }\n    input{\n        outline: 1px solid black;\n        height: 1.4rem;\n        margin: 6% 0;\n        padding: 0 .8rem;\n   \n    }\n    input::placeholder{\n        color: black;\n    }\n    button{\n        width: auto;\n        height: auto;\n        padding: .3rem 1.3rem;\n        box-shadow: none;\n        border: none;\n        color: white;\n        font-size: 130%;\n        background: var(--main-blue);\n    }\n    "]);
+  var data = _taggedTemplateLiteral(["<p id=\"error\">", "</p>"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -4737,7 +4841,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n         ", "\n      <form method=\"POST\" style=\"", "\" @submit=\"", "\">\n          ", "\n          <input type=\"email\" name=\"email\" placeholder=\"Email address\">\n          <input type=\"password\" name=\"password\" placeholder=\"Your password\">\n          <button style=\"", "\" type=\"submit\">", "</button>\n          </form>\n    "]);
+  var data = _taggedTemplateLiteral(["\n         ", "\n      <form method=\"POST\" style=\"", "\" @submit=\"", "\">\n          ", "\n          <input type=\"email\" name=\"email\" placeholder=\"Email address\">\n          ", "\n          <input type=\"password\" name=\"password\" placeholder=\"Your password\">\n          <button style=\"", "\" type=\"submit\">", "</button>\n          </form>\n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -4806,6 +4910,8 @@ var SignIn = /*#__PURE__*/function (_LitElement) {
     _this = _super.call(this);
     _this.titleText;
     _this.signup = false;
+    _this.error = "";
+    _this.loading = false;
     return _this;
   }
 
@@ -4835,8 +4941,10 @@ var SignIn = /*#__PURE__*/function (_LitElement) {
                   _iterator.f();
                 }
 
-                _context.next = 7;
-                return fetch("http://localhost:3000/signin", {
+                this.loading = true;
+                this.requestUpdate();
+                _context.next = 9;
+                return fetch("http://localhost:3001/login", {
                   method: "POST",
                   headers: {
                     "content-type": "application/json"
@@ -4844,22 +4952,42 @@ var SignIn = /*#__PURE__*/function (_LitElement) {
                   body: JSON.stringify(obj)
                 });
 
-              case 7:
+              case 9:
                 resp = _context.sent;
-                _context.next = 10;
+
+                if (resp.status == 500) {
+                  this.error = "Something went wrong, please try again later";
+                  this.loading = false;
+                  this.requestUpdate();
+                }
+
+                if (!(resp.status == 404)) {
+                  _context.next = 17;
+                  break;
+                }
+
+                this.loading = false;
+                this.error = "The email or password is incorrect";
+                this.requestUpdate();
+                _context.next = 23;
+                break;
+
+              case 17:
+                _context.next = 19;
                 return resp.json();
 
-              case 10:
+              case 19:
                 resp = _context.sent;
-                localStorage.setItem("currentLesson", resp[0].currentLesson);
+                localStorage.setItem("sessionId", resp);
                 window.location.href = "http://localhost:1234/platform.html";
+                console.log(resp);
 
-              case 13:
+              case 23:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee);
+        }, _callee, this);
       }));
 
       function signIn(_x) {
@@ -4872,19 +5000,69 @@ var SignIn = /*#__PURE__*/function (_LitElement) {
     key: "signUp",
     value: function () {
       var _signUp = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(e) {
+        var formData, obj, _iterator2, _step2, entry, resp;
+
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                //TODO:
-                console.log("Signing up for the very first time!");
+                e.preventDefault();
+                formData = new FormData(e.target);
+                obj = {};
+                _iterator2 = _createForOfIteratorHelper(formData);
 
-              case 1:
+                try {
+                  for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                    entry = _step2.value;
+                    obj[entry[0]] = entry[1];
+                  }
+                } catch (err) {
+                  _iterator2.e(err);
+                } finally {
+                  _iterator2.f();
+                }
+
+                this.loading = true;
+                this.requestUpdate();
+                _context2.next = 9;
+                return fetch("http://localhost:3001/signup", {
+                  method: "POST",
+                  headers: {
+                    "content-type": "application/json"
+                  },
+                  body: JSON.stringify(obj)
+                });
+
+              case 9:
+                resp = _context2.sent;
+
+                if (resp.status == 500) {
+                  this.error = "Something went wrong, please try again later";
+                  this.loading = false;
+                  this.requestUpdate();
+                }
+
+                if (resp.status == 302) {
+                  this.loading = false;
+                  this.error = "This email is already taken";
+                  this.requestUpdate();
+                }
+
+                ;
+                _context2.next = 15;
+                return resp.json();
+
+              case 15:
+                resp = _context2.sent;
+                localStorage.setItem("sessionId", resp);
+                window.location.href = "http://localhost:1234/platform.html";
+
+              case 18:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2);
+        }, _callee2, this);
       }));
 
       function signUp(_x2) {
@@ -4896,12 +5074,12 @@ var SignIn = /*#__PURE__*/function (_LitElement) {
   }, {
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject(), this.signup ? (0, _litElement.html)(_templateObject2(), this.titleText) : undefined, !this.signup ? "box-shadow: 1px 1px 6px, -1px -1px 3px rgba(0,0,0, 0.01);" : undefined, this.signup ? this.signUp : this.signIn, this.signup ? (0, _litElement.html)(_templateObject3()) : undefined, this.signup ? "align-self: flex-end;" : "align-self: stretch", this.signup ? "Join" : "Log in");
+      return (0, _litElement.html)(_templateObject(), this.signup ? (0, _litElement.html)(_templateObject2(), this.titleText) : undefined, !this.signup ? "box-shadow: 1px 1px 6px, -1px -1px 3px rgba(0,0,0, 0.01);" : undefined, this.signup ? this.signUp : this.signIn, this.signup ? (0, _litElement.html)(_templateObject3()) : undefined, this.error.length > 1 ? (0, _litElement.html)(_templateObject4(), this.error) : undefined, this.signup ? "align-self: flex-end;" : "align-self: stretch", this.loading ? (0, _litElement.html)(_templateObject5()) : this.signup ? "Join" : "Log in");
     }
   }], [{
     key: "styles",
     get: function get() {
-      return (0, _litElement.css)(_templateObject4());
+      return (0, _litElement.css)(_templateObject6());
     }
   }]);
 
@@ -4910,7 +5088,7 @@ var SignIn = /*#__PURE__*/function (_LitElement) {
 
 exports.SignIn = SignIn;
 customElements.define('sign-in', SignIn);
-},{"lit-element":"node_modules/lit-element/lit-element.js","regenerator-runtime/runtime":"node_modules/regenerator-runtime/runtime.js"}],"nav-bar.js":[function(require,module,exports) {
+},{"lit-element":"node_modules/lit-element/lit-element.js","regenerator-runtime/runtime":"node_modules/regenerator-runtime/runtime.js","./loader-spinner.js":"loader-spinner.js"}],"nav-bar.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4924,8 +5102,18 @@ require("./sign-in.js");
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _templateObject8() {
+  var data = _taggedTemplateLiteral(["\n    :host {\n        font-family: var(--main-font);\n        font-size: 80%;\n        font-weight: 300;\n        position: absolute;\n        top: 0;\n        left: 0;\n        background-color: var(--nav-back);\n    }\n    nav {\n        display: flex;\n        height: 6vh;\n        align-items: center;\n        justify-content: space-between;\n        padding: 2vh 3vh;\n    }\n   \n    .end {\n        display: flex;\n        justify-content: space-between;\n        margin-left: auto;\n    }\n    .titletext {\n        display: flex;\n        align-items: center;\n\n        margin: auto;\n    }\n    .titletext > p {\n        margin: 0 1rem;\n    }\n    #login{\n        margin-left: auto;\n        background-color: var(--light-grey);\n        cursor: pointer;\n    }\n    #goback{\n        background: var(--main-blue);\n        margin-right: auto;\n        color: white;\n    }\n    a, label {\n        font-weight: bold;\n        padding: .8rem 1.8rem;\n        color: white;\n        text-decoration: none;\n    }\n    #profile, #lessonProfile {\n        background: var(--main-blue);\n        margin-right: 1rem;\n        cursor: pointer;\n    }\n    #lessonProfile{\n        background: transparent;\n    }\n    #signin {\n        display: none;\n        position: absolute;\n        width: 12%;\n        height: 4%;\n        right: 2%;\n        top: 100%;\n    }\n    #loginInput {\n        opacity: 0;\n    }\n    #loginInput:checked ~ #signin {\n        display: block;\n    }\n    #lessonTitle{\n        font-weight: 100;\n        color: white;\n    }\n\n    "]);
+
+  _templateObject8 = function _templateObject8() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject7() {
-  var data = _taggedTemplateLiteral(["\n    :host {\n        font-family: var(--main-font);\n        font-size: 80%;\n        font-weight: 300;\n        position: absolute;\n        top: 0;\n        left: 0;\n    }\n    nav {\n        display: flex;\n        height: 6vh;\n        align-items: center;\n        justify-content: space-between;\n        padding: 1rem 2rem;\n    }\n   \n    .end {\n        display: flex;\n        justify-content: space-between;\n        margin-left: auto;\n    }\n    .titletext {\n        display: flex;\n        align-items: center;\n\n        margin: auto;\n    }\n    .titletext > p {\n        margin: 0 1rem;\n    }\n    #login{\n        margin-left: auto;\n        background-color: var(--light-grey);\n        cursor: pointer;\n    }\n    #goback{\n        background: var(--main-blue);\n        margin-right: auto;\n        color: white;\n    }\n    a, label {\n        font-weight: bold;\n        padding: .8rem 1.8rem;\n        color: white;\n    }\n    #profile {\n        background: var(--main-blue);\n        margin-right: 1rem;\n\n    }\n    #signin {\n        display: none;\n        position: absolute;\n        width: 12%;\n        height: 4%;\n        right: 2%;\n        top: 100%;\n    }\n    #loginInput {\n        opacity: 0;\n    }\n    #loginInput:checked ~ #signin {\n        display: block;\n    }\n\n    "]);
+  var data = _taggedTemplateLiteral(["<a style=\"", "\" @click=\"", "\" id=\"login\">Log out</a>"]);
 
   _templateObject7 = function _templateObject7() {
     return data;
@@ -4935,7 +5123,7 @@ function _templateObject7() {
 }
 
 function _templateObject6() {
-  var data = _taggedTemplateLiteral(["<a id=\"login\">Log out</a>"]);
+  var data = _taggedTemplateLiteral([" <input id=\"loginInput\" type=\"checkbox\">\n          <label for=\"loginInput\" id=\"login\">Log in</label>\n          <sign-in id=\"signin\"></sign-in>"]);
 
   _templateObject6 = function _templateObject6() {
     return data;
@@ -4945,7 +5133,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  var data = _taggedTemplateLiteral([" <input id=\"loginInput\" type=\"checkbox\">\n          <label for=\"loginInput\" id=\"login\">Log in</label>\n          <sign-in id=\"signin\"></sign-in>"]);
+  var data = _taggedTemplateLiteral(["<a @click=\"", "\" id=\"lessonProfile\">Profile</a>"]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -4955,7 +5143,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["<a id=\"profile\">Overview</a>"]);
+  var data = _taggedTemplateLiteral(["<a id=\"profile\" @click=\"", "\">Overview</a>"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -4965,7 +5153,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["<a id=\"profile\">Profile</a>"]);
+  var data = _taggedTemplateLiteral(["<a id=\"profile\" @click=\"", "\">Profile</a>"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -4975,7 +5163,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["<a id=\"goback\">Go back</a>\n         <div class=\"titletext\">\n            <a>&larr;</a>\n            <p>Title text</p>\n            <a>&rarr;</a>\n        </div>\n         "]);
+  var data = _taggedTemplateLiteral(["<a href=\"platform.html\" id=\"goback\">Go back</a>\n         <div class=\"titletext\">\n            <a href=\"lesson.html?lessonId=", "\">&larr;</a>\n  <h1 id=\"lessonTitle\">", "</h1>\n            <a href=\"lesson.html?lessonId=", "\">&rarr;</a>\n        </div>\n         "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -4985,7 +5173,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n      <nav>\n         ", "\n          \n          <div class=\"end\">\n              ", "\n              ", "\n       ", "\n                </div>\n            </nav>\n      "]);
+  var data = _taggedTemplateLiteral(["\n      <nav>\n         ", "\n          \n          <div class=\"end\">\n              ", "\n              ", "\n            ", "\n       ", "\n                </div>\n            </nav>\n      "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -5040,6 +5228,14 @@ var NavBar = /*#__PURE__*/function (_LitElement) {
         landing: {
           type: Boolean,
           reflect: true
+        },
+        lessonTitle: {
+          type: String,
+          reflect: true
+        },
+        topicId: {
+          type: String,
+          reflect: true
         }
       };
     }
@@ -5055,18 +5251,35 @@ var NavBar = /*#__PURE__*/function (_LitElement) {
     _this.overview = false;
     _this.profile = false;
     _this.landing = false;
+    _this.lessonTitle = " ";
+    _this.topicId = " ";
     return _this;
   }
 
   _createClass(NavBar, [{
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject(), this.lesson ? (0, _litElement.html)(_templateObject2()) : undefined, this.overview ? (0, _litElement.html)(_templateObject3()) : undefined, this.profile ? (0, _litElement.html)(_templateObject4()) : undefined, this.landing ? (0, _litElement.html)(_templateObject5()) : (0, _litElement.html)(_templateObject6()));
+      var _this2 = this;
+
+      return (0, _litElement.html)(_templateObject(), this.lesson ? (0, _litElement.html)(_templateObject2(), Number(this.topicId) > 1 ? "".concat(Number(this.topicId) - 1, ".1") : "1.1", this.topicId + '. ' + this.lessonTitle || " ", Number(this.topicId) < 6 ? "".concat(Number(this.topicId) + 1, ".1") : "6.1") : undefined, this.overview ? (0, _litElement.html)(_templateObject3(), function () {
+        _this2.dispatchEvent(new CustomEvent("toProfile", {
+          bubbles: true
+        }));
+      }) : undefined, this.profile ? (0, _litElement.html)(_templateObject4(), function () {
+        _this2.dispatchEvent(new CustomEvent("toOverview", {
+          bubbles: true
+        }));
+      }) : undefined, this.lesson ? (0, _litElement.html)(_templateObject5(), function () {
+        window.location.href = "platform.html?p=p";
+      }) : undefined, this.landing ? (0, _litElement.html)(_templateObject6()) : (0, _litElement.html)(_templateObject7(), this.lesson ? "background-color: transparent" : undefined, function () {
+        localStorage.removeItem('sessionId');
+        window.location.href = "index.html";
+      }));
     }
   }], [{
     key: "styles",
     get: function get() {
-      return (0, _litElement.css)(_templateObject7());
+      return (0, _litElement.css)(_templateObject8());
     }
   }]);
 
@@ -5098,7 +5311,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n    :host{\n        width: 100%;\n        height: 100%;\n    }\n    #left, #right{\n       flex: 1;\n    }\n    #left{\n    background-image: url('", "');\n    background-size: 100% auto;\n    background-position: center;\n    display: flex;\n    flex-direction: column;\n    padding: 0 1rem;\n    justify-content: space-between;\n    }\n\n    #right{\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column; \n    }\n    #signin{\n        width: 50%;\n        height: 40%;\n    }\n    #navbar{\n        width:100%;\n    }\n    h1{\n      font-family: var(--main-font);\n      font-weight: 100;\n      text-decoration: underline;\n      margin-top: 3rem;\n    }\n    #left > p {\n      font-family: var(--main-font);\n      color: white;\n      font-size: 300%;\n      background-color: var(--main-blue);\n      width: 70%;\n      height: max-content;\n      padding-left: .6rem;\n    }\n    #second{\n      align-self: flex-end;\n    }\n\n    "]);
+  var data = _taggedTemplateLiteral(["\n    :host{\n        width: 100%;\n        height: 100%;\n    }\n    #left, #right{\n       flex: 1;\n    }\n    #left{\n    background-image: url('", "');\n    background-size: 100% auto;\n    background-position: center;\n    display: flex;\n    flex-direction: column;\n    padding: 0 1rem;\n    justify-content: space-between;\n    }\n\n    #right{\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column; \n    }\n    #signin{\n        width: 50%;\n        height: 40%;\n    }\n    #navbar{\n        width:100%;\n    }\n    h1{\n      font-family: var(--main-font);\n      font-weight: 100;\n      text-decoration: underline;\n      margin-top: 4.6rem;\n    }\n    #left > p {\n      font-family: var(--main-font);\n      color: white;\n      font-size: 300%;\n      background-color: var(--main-blue);\n      width: 70%;\n      height: max-content;\n      padding-left: .6rem;\n    }\n    #second{\n      align-self: flex-end;\n    }\n\n    "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -5108,7 +5321,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n      <nav-bar landing id=\"navbar\"></nav-bar>\n      <div id=\"left\">\n        <p>Wanna learn about databases?</p>\n        <p id=\"second\">Join today and start learning for free!</p>\n      </div>\n      <div id=\"right\">\n        <sign-in id=\"signin\" signup titletext=\"Sign up for free...\"></sign-in>\n        <h1>...or see a sample lesson</h1>\n      </div>\n    "]);
+  var data = _taggedTemplateLiteral(["\n      <nav-bar landing id=\"navbar\"></nav-bar>\n      <div id=\"left\">\n        <p>Wanna learn about databases?</p>\n        <p id=\"second\">Join today and start learning for free!</p>\n      </div>\n      <div id=\"right\">\n        <sign-in id=\"signin\" signup titletext=\"Sign up for free...\"></sign-in>\n        <h1 style=\"cursor: pointer\" @click=\"", "\">...or see a sample lesson</h1>\n      </div>\n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -5153,7 +5366,9 @@ var LoginPage = /*#__PURE__*/function (_LitElement) {
   _createClass(LoginPage, [{
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject());
+      return (0, _litElement.html)(_templateObject(), function () {
+        window.location.href = "lesson.html?lessonId=1.1";
+      });
     }
   }], [{
     key: "styles",
@@ -5183,7 +5398,7 @@ require("regenerator-runtime/runtime");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["<a style=\"", "\" href=\"?lessonId=", "\">", "</a>"]);
+  var data = _taggedTemplateLiteral(["<a style=\"", "\" href=\"lesson.html?lessonId=", "\">", "</a>"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -5301,7 +5516,7 @@ var TopicOverview = /*#__PURE__*/function (_LitElement) {
     _this.topicId;
     _this.topicName;
     _this.lessons = [];
-    _this.color = "#000000";
+    _this.color = "#444444";
     _this.currentLesson;
     return _this;
   }
@@ -5311,7 +5526,7 @@ var TopicOverview = /*#__PURE__*/function (_LitElement) {
     value: function firstUpdated() {
       _get(_getPrototypeOf(TopicOverview.prototype), "firstUpdated", this).call(this);
 
-      this.currentLesson = localStorage.getItem("currentLesson");
+      this.currentLesson = localStorage.getItem('sessionId').slice(0, 1) + '.' + localStorage.getItem('sessionId').slice(1, 2);
 
       if (this.topicId == this.currentLesson.substring(0, 1)) {
         this.open = true;
@@ -5320,9 +5535,9 @@ var TopicOverview = /*#__PURE__*/function (_LitElement) {
       }
 
       console.log(this.lessons);
-      this.finished ? this.color = "#F8F6F6" : undefined;
+      this.finished ? this.color = "#F8F7F7" : undefined;
       this.open ? this.color = "var(--main-blue)" : undefined;
-      this.color == undefined ? this.color = "black" : undefined;
+      this.color == undefined ? this.color = "#444444" : undefined;
       this.requestUpdate();
     }
   }, {
@@ -5330,8 +5545,8 @@ var TopicOverview = /*#__PURE__*/function (_LitElement) {
     value: function render() {
       var _this2 = this;
 
-      return (0, _litElement.html)(_templateObject2(), this.open, this.color, this.finished ? "color: black" : undefined, this.topicName, this.lessons.length > 0 ? (0, _litElement.html)(_templateObject3(), this.lessons.map(function (lesson) {
-        return (0, _litElement.html)(_templateObject4(), lesson.lessonId == _this2.currentLesson ? "background-color: black; color: white" : "background-color: #F8F6F6; color: black", lesson.lessonId, lesson.lessonName);
+      return (0, _litElement.html)(_templateObject2(), this.open, this.color, this.finished ? "color: #444444" : undefined, this.topicName, this.lessons.length > 0 ? (0, _litElement.html)(_templateObject3(), this.lessons.map(function (lesson) {
+        return (0, _litElement.html)(_templateObject4(), lesson.lessonId == _this2.currentLesson ? "background-color: #444444; color: white" : "background-color: #F8F7F7; color: #444444", lesson.lessonId, lesson.lessonName);
       })) : undefined);
     }
   }]);
@@ -5351,16 +5566,24 @@ exports.OverviewPage = void 0;
 
 var _litElement = require("lit-element");
 
-require("./nav-bar.js");
-
 require("./topic-overview.js");
 
 require("regenerator-runtime/runtime");
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["<topic-overview .lessons=", " topicId=\"", "\" topicName=\"", "\"></topic-overview>"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n    <h1>Overview of your progress</h1>\n    <div id=\"topics\">\n      <topic-overview .lessons=", " topicId=\"1\" topicName=\"Topic 1\"></topic-overview>\n      <topic-overview .lessons=", " topicId=\"2\" topicName=\"Topic 2\"></topic-overview>\n      <topic-overview .lessons=", " topicId=\"3\" topicName=\"Topic 3\"></topic-overview>\n      <topic-overview .lessons=", " topicId=\"4\" topicName=\"Topic 4\"></topic-overview>\n      <topic-overview .lessons=", " topicId=\"5\" topicName=\"Topic 5\"></topic-overview>\n      <topic-overview .lessons=", " topicId=\"6\" topicName=\"Topic 6\"></topic-overview>\n      <topic-overview .lessons=", " topicId=\"7\" topicName=\"Topic 7\"></topic-overview>\n    </div>\n    "]);
+  var data = _taggedTemplateLiteral(["\n    <header id=\"top\">\n    <h1>Overview of your progress</h1>\n  </header>\n    <div id=\"topics\">\n       ", "\n    </div>\n    "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -5369,12 +5592,18 @@ function _templateObject2() {
   return data;
 }
 
+function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    :host{\n        width: 100%;\n        height: 100%;\n        display: flex;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n    }\n    h1{\n      font-family: var(--main-font);\n      font-size: 400%;\n      font-weight: 100;\n      text-align: center;\n      width: 40%;\n      height: auto;\n    }\n    #topics {\n      width: 100%;\n      display: flex;\n      flex-direction: row;\n      justify-content: space-evenly;\n      align-content: flex-start;\n    }\n      "]);
+  var data = _taggedTemplateLiteral(["\n    :host{\n        width: 100%;\n        height: 100%;\n        display: flex;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n    }\n    h1{\n      font-family: var(--main-font);\n      font-size: 400%;\n      font-weight: 100;\n      text-align: center;\n      width: 40%;\n      height: auto;\n      color: #444444;\n    }\n    #topics {\n      width: 100%;\n      height: 50%;\n      display: flex;\n      flex-direction: row;\n      justify-content: space-evenly;\n      align-content: flex-start;\n    }\n    header{\n      height: 50%;\n      width: 100%;\n      display: flex;\n      justify-content: center;\n        align-items: center;\n      padding-top: 4rem;\n    }\n      "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -5438,16 +5667,7 @@ var OverviewPage = /*#__PURE__*/function (_LitElement) {
       _get(_getPrototypeOf(OverviewPage.prototype), "firstUpdated", this).call(this);
 
       this.getAllLessons();
-      this.lessons = [{
-        "lessonId": "1.1",
-        "lessonName": "first lesson"
-      }, {
-        "lessonId": "1.2",
-        "lessonName": "helo world"
-      }, {
-        "lessonName": "it's me",
-        "lessonId": "2.3"
-      }];
+      this.lessons = [];
       console.log(this.lessons);
       this.requestUpdate();
     }
@@ -5455,13 +5675,14 @@ var OverviewPage = /*#__PURE__*/function (_LitElement) {
     key: "getAllLessons",
     value: function () {
       var _getAllLessons = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-        var resp;
+        var resp, topics, _iterator, _step, elem;
+
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return fetch("http://localhost/elearning/get-overview.php");
+                return fetch("http://localhost:3001/overview");
 
               case 2:
                 resp = _context.sent;
@@ -5470,10 +5691,31 @@ var OverviewPage = /*#__PURE__*/function (_LitElement) {
 
               case 5:
                 this.data = _context.sent;
-                console.table(this.data);
+                topics = [];
+                _iterator = _createForOfIteratorHelper(this.data);
+
+                try {
+                  for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                    elem = _step.value;
+                    topics[elem.topicId] = topics[elem.topicId] || [];
+                    topics[elem.topicId].push([]);
+                    topics[elem.topicId][0].push({
+                      "lessonName": elem.lessonName,
+                      "lessonId": elem.lessonId
+                    });
+                    topics[elem.topicId].topicName = elem.topicName;
+                    topics[elem.topicId].topicId = elem.topicId;
+                  }
+                } catch (err) {
+                  _iterator.e(err);
+                } finally {
+                  _iterator.f();
+                }
+
+                this.data = topics;
                 this.requestUpdate();
 
-              case 8:
+              case 11:
               case "end":
                 return _context.stop();
             }
@@ -5490,7 +5732,9 @@ var OverviewPage = /*#__PURE__*/function (_LitElement) {
   }, {
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject2(), this.lessons, this.lessons, this.lessons, this.lessons, this.lessons, this.lessons, this.lessons);
+      return (0, _litElement.html)(_templateObject2(), this.data.map(function (topic) {
+        return (0, _litElement.html)(_templateObject3(), topic[0], topic.topicId, topic.topicName);
+      }));
     }
   }]);
 
@@ -5499,7 +5743,313 @@ var OverviewPage = /*#__PURE__*/function (_LitElement) {
 
 exports.OverviewPage = OverviewPage;
 customElements.define('overview-page', OverviewPage);
-},{"lit-element":"node_modules/lit-element/lit-element.js","./nav-bar.js":"nav-bar.js","./topic-overview.js":"topic-overview.js","regenerator-runtime/runtime":"node_modules/regenerator-runtime/runtime.js"}],"platform-shell.js":[function(require,module,exports) {
+},{"lit-element":"node_modules/lit-element/lit-element.js","./topic-overview.js":"topic-overview.js","regenerator-runtime/runtime":"node_modules/regenerator-runtime/runtime.js"}],"img/eye-open.svg":[function(require,module,exports) {
+module.exports = "/eye-open.264bbf9f.svg";
+},{}],"img/eye-closed.svg":[function(require,module,exports) {
+module.exports = "/eye-closed.b929b6a8.svg";
+},{}],"profile-page.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ProfilePage = void 0;
+
+var _litElement = require("lit-element");
+
+require("./topic-overview.js");
+
+require("regenerator-runtime/runtime");
+
+var _eyeOpen = _interopRequireDefault(require("./img/eye-open.svg"));
+
+var _eyeClosed = _interopRequireDefault(require("./img/eye-closed.svg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["\n    <div id=\"overlay\" @click=\"", "\">\n        <div id=\"wall\">\n                <p>Are you sure you want to delete your account?</p>\n                <button type=\"button\" @click=\"", "\" id=\"delete\">Delete</button>\n    <button @click=\"", "\" type=\"submit\">Cancel</button>\n            </sign-in>\n        </div>\n    </div>\n    "]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["<p id=\"error\">Something went wrong, please try again later</p>"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["<p id=\"success\">Information updated</p>"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n    <h1>Your profile</h1>\n    <div id=\"profilebox\">\n        <form @submit=\"", "\">\n            <input type=\"text\" autocomplete=\"off\" name=\"name\" value=\"", "\">\n            <input type=\"text\" autocomplete=\"off\" name=\"email\" value=\"", "\">\n            <span id=\"passwordinput\">\n                <input type=\"password\" name=\"password\" value=\"", "\">\n                <img @click=\"", "\" id=\"eye\" src=\"", "\">\n            </span>\n            <div id=\"buttons\">\n                <button type=\"button\" @click=\"", "\" id=\"delete\">Delete account</button>\n                <button type=\"submit\">Save</button>\n            </div>\n        </form>\n    </div>\n    ", "\n    ", "\n    ", "\n    "]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    :host{\n        width: 100%;\n        height: 100%;\n        display: flex;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n    }\n    h1{\n      font-family: var(--main-font);\n      font-size: 300%;\n      font-weight: 100;\n      text-align: center;\n      color: #444444;\n      width: 40%;\n      height: auto;\n    }\n    #profilebox{\n        width: 30vw;\n        height: 60vh;\n        background-color: #444444;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n    }\n    form{\n        display: flex;\n        flex-direction: column;\n        padding: 1rem 0;\n        align-items: center;\n        justify-content: space-between;\n        height: 80%;\n        width: 80%;\n    }\n    input, span, #buttons{\n        background-color: #515151;\n        border: 3px solid transparent;\n        color: white;\n        font-family: var(--main-font);\n        padding: .6rem;\n        font-size: 120%;\n        border-radius: .6rem;\n        width: 100%;\n        font-weight: 100;\n    }\n    span{\n        display: flex;\n        overflow: visible;\n    }\n    span>input{\n        border: 0;\n        padding: 0;\n        width: auto;\n        font-size: 100%;\n    }\n    #eye{\n        width: 1.3rem;\n        height: 1.3rem;\n        margin-left: auto;\n        margin-right: .3rem;\n        padding: 0;\n        cursor: pointer;\n        align-self: center;\n    }\n    #buttons{\n        display: flex;\n        justify-content: space-between;\n        background: none;\n    }\n    button{\n        font-size: 90%;\n        border: none;\n        padding: .6rem 1rem;\n        color: white;\n        background-color: var(--main-blue);\n    }\n    #delete{\n        background-color: var(--light-grey);\n    }\n    #overlay {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        background-color: rgba(0,0,0,0.4);\n        height: 100%;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n    }\n    #wall{\n        padding: 1rem;\n        width: 30vh;\n        text-align: center;\n        height: 20vh;\n        background-color: white;\n    }\n    p{\n        font-family: var(--main-font);\n        font-weight: 100;\n        margin-bottom: 3rem;\n    }\n    #error, #success{\n        animation: fade 2s forwards;\n        margin: 0;\n        padding: 0;\n        opacity: 1;\n        position: absolute;\n        bottom: 7rem;\n    }\n    #error{\n        color: var(--error-color);\n    }\n    #success {\n        color: var(--main-blue);\n    }\n    @keyframes fade {\n        to {\n            opacity: 0;\n        }\n    }\n      "]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function () { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var ProfilePage = /*#__PURE__*/function (_LitElement) {
+  _inherits(ProfilePage, _LitElement);
+
+  var _super = _createSuper(ProfilePage);
+
+  _createClass(ProfilePage, null, [{
+    key: "styles",
+    get: function get() {
+      return (0, _litElement.css)(_templateObject());
+    }
+  }]);
+
+  function ProfilePage() {
+    var _this;
+
+    _classCallCheck(this, ProfilePage);
+
+    _this = _super.call(this);
+    _this.profileData = {};
+    _this.error = false;
+    _this.success = false;
+    return _this;
+  }
+
+  _createClass(ProfilePage, [{
+    key: "firstUpdated",
+    value: function firstUpdated() {
+      _get(_getPrototypeOf(ProfilePage.prototype), "firstUpdated", this).call(this);
+
+      this.getProfileData();
+      this.requestUpdate();
+    }
+  }, {
+    key: "getProfileData",
+    value: function () {
+      var _getProfileData = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        var userId, resp;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                userId = {
+                  "userId": localStorage.getItem("sessionId").slice(4) / 13
+                };
+                console.log(userId);
+                _context.next = 4;
+                return fetch("http://localhost:3001/profile", {
+                  method: "POST",
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(userId)
+                });
+
+              case 4:
+                resp = _context.sent;
+
+                if (!(resp.status == 500)) {
+                  _context.next = 10;
+                  break;
+                }
+
+                this.error = true;
+                this.requestUpdate();
+                _context.next = 15;
+                break;
+
+              case 10:
+                _context.next = 12;
+                return resp.json();
+
+              case 12:
+                this.data = _context.sent;
+                this.profileData = this.data[0];
+                this.requestUpdate();
+
+              case 15:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function getProfileData() {
+        return _getProfileData.apply(this, arguments);
+      }
+
+      return getProfileData;
+    }()
+  }, {
+    key: "updateData",
+    value: function () {
+      var _updateData = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(e) {
+        var formData, obj, _iterator, _step, entry, resp;
+
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                e.preventDefault();
+                formData = new FormData(e.target);
+                obj = {};
+                _iterator = _createForOfIteratorHelper(formData);
+
+                try {
+                  for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                    entry = _step.value;
+                    obj[entry[0]] = entry[1];
+                  }
+                } catch (err) {
+                  _iterator.e(err);
+                } finally {
+                  _iterator.f();
+                }
+
+                obj.userId = localStorage.getItem("sessionId").slice(4) / 13;
+                _context2.next = 8;
+                return fetch("http://localhost:3001/update", {
+                  method: "POST",
+                  headers: {
+                    "content-type": "application/json"
+                  },
+                  body: JSON.stringify(obj)
+                });
+
+              case 8:
+                resp = _context2.sent;
+
+                if (resp.status == 500) {
+                  this.error = true;
+                  this.requestUpdate();
+                } else {
+                  this.success = true;
+                  console.log(resp);
+                  this.requestUpdate();
+                }
+
+              case 10:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function updateData(_x) {
+        return _updateData.apply(this, arguments);
+      }
+
+      return updateData;
+    }()
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return (0, _litElement.html)(_templateObject2(), this.updateData, this.profileData.name || " ", this.profileData.email || " ", this.profileData.password || "", function (e) {
+        e.target.previousElementSibling.type == "password" ? (e.target.previousElementSibling.type = "text", e.target.src = _eyeClosed.default) : (e.target.previousElementSibling.type = "password", e.target.src = _eyeOpen.default);
+      }, _eyeOpen.default, function () {
+        _this2.dialog = true;
+
+        _this2.requestUpdate();
+      }, this.success ? (0, _litElement.html)(_templateObject3()) : undefined, this.error ? (0, _litElement.html)(_templateObject4()) : undefined, this.dialog ? (0, _litElement.html)(_templateObject5(), function () {
+        _this2.dialog = false;
+
+        _this2.requestUpdate();
+      }, function () {
+        fetch("http://localhost:3001/delete", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify({
+            userId: localStorage.getItem('userId')
+          })
+        }).then(function () {
+          localStorage.removeItem('userId');
+          localStorage.removeItem('currentLesson');
+          window.location.href = "index.html";
+        });
+      }, function () {
+        _this2.dialog = false;
+
+        _this2.requestUpdate();
+      }) : undefined);
+    }
+  }]);
+
+  return ProfilePage;
+}(_litElement.LitElement);
+
+exports.ProfilePage = ProfilePage;
+customElements.define('profile-page', ProfilePage);
+},{"lit-element":"node_modules/lit-element/lit-element.js","./topic-overview.js":"topic-overview.js","regenerator-runtime/runtime":"node_modules/regenerator-runtime/runtime.js","./img/eye-open.svg":"img/eye-open.svg","./img/eye-closed.svg":"img/eye-closed.svg"}],"platform-shell.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5511,10 +6061,12 @@ var _litElement = require("lit-element");
 
 var _overviewPage = require("./overview-page.js");
 
+var _profilePage = require("./profile-page.js");
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n    <nav-bar id=\"navbar\"></nav-bar>\n   <div id=\"container\">\n    </div>\n    "]);
+  var data = _taggedTemplateLiteral(["\n    <nav-bar @toOverview=\"", "\" @toProfile=\"", "\" id=\"navbar\"></nav-bar>\n   <div id=\"container\">\n    </div>\n    "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -5598,24 +6150,48 @@ var PlatformShell = /*#__PURE__*/function (_LitElement) {
     value: function firstUpdated() {
       _get(_getPrototypeOf(PlatformShell.prototype), "firstUpdated", this).call(this);
 
-      this.toOverview();
+      var urlParams = new URLSearchParams(window.location.search);
+      this.container = this.shadowRoot.querySelector("#container");
+      this.navbar = this.shadowRoot.querySelector("#navbar");
+
+      if (urlParams.get('p')) {
+        this.toProfile();
+      } else {
+        this.toOverview();
+      }
+
       this.requestUpdate();
     }
   }, {
     key: "toOverview",
     value: function toOverview() {
-      this.container = this.shadowRoot.querySelector("#container");
-      this.navbar = this.shadowRoot.querySelector("#navbar");
-      this.navbar.overview = true;
       var overview = new _overviewPage.OverviewPage();
       this.container.removeChild(this.container.lastChild);
       this.container.appendChild(overview);
+      this.navbar.overview = true;
+      this.navbar.profile = false;
+      this.requestUpdate();
+    }
+  }, {
+    key: "toProfile",
+    value: function toProfile() {
+      var profile = new _profilePage.ProfilePage();
+      this.container.removeChild(this.container.lastChild);
+      this.container.appendChild(profile);
+      this.navbar.profile = true;
+      this.navbar.overview = false;
       this.requestUpdate();
     }
   }, {
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject2());
+      var _this2 = this;
+
+      return (0, _litElement.html)(_templateObject2(), function () {
+        _this2.toOverview();
+      }, function () {
+        _this2.toProfile();
+      });
     }
   }]);
 
@@ -5624,7 +6200,326 @@ var PlatformShell = /*#__PURE__*/function (_LitElement) {
 
 exports.PlatformShell = PlatformShell;
 customElements.define('platform-shell', PlatformShell);
-},{"lit-element":"node_modules/lit-element/lit-element.js","./overview-page.js":"overview-page.js"}],"index.js":[function(require,module,exports) {
+},{"lit-element":"node_modules/lit-element/lit-element.js","./overview-page.js":"overview-page.js","./profile-page.js":"profile-page.js"}],"lesson-page.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.LessonPage = void 0;
+
+var _litElement = require("lit-element");
+
+require("./nav-bar.js");
+
+require("./sign-in.js");
+
+require("regenerator-runtime/runtime");
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _templateObject6() {
+  var data = _taggedTemplateLiteral(["\n    <div id=\"overlay\">\n            <div id=\"wall\">\n            <sign-in id=\"signup\" signup titleText=\"Sign up for free to continue learning!\">\n            </sign-in>\n        </div>\n    </div>\n    "]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["<img id=\"img\" src=\"", "\">"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["\n            <h2>", "</h2>\n            "]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["<div @click=\"", "\" class=\"lesson ", "\">\n                                <a href=\"lesson.html?lessonId=", "\">", "</a>\n                         </div>"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n    <nav-bar id=\"nav\" lessonTitle=", " topicId=\"", "\" ?lesson=", " ?landing=", "></nav-bar>\n     <div id=\"container\">\n         <div id=\"left\">\n             <div id=\"list\">\n                 ", "\n               </div>\n         </div>\n         <div id=\"right\">\n         ", "\n           <span id=\"lessonContent\">\n            <p id=\"text\"></p>\n            ", "\n            </span>\n         </div>\n     </div>\n    ", "\n    "]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    :host{\n        font-family: var(--main-font);\n        width: 100%;\n        height: 100%;\n        display: flex;\n        flex-direction: column;\n    }\n    #nav {\n        width: 100%;\n    }\n    #container{\n        flex: 1;\n        width: 100%;\n        display: flex;\n        flex-direction: row;\n        overflow-y: scroll;\n          }\n    #left{\n        width: 33%;\n        background-color: white;\n    }\n    #right{\n        width: 57%;\n        background-color: #444444;\n        padding: 5% 5%;\n        height: max-content;\n        min-height: 100%;\n    }\n    code{\n        background: rgba(255,255,255,0.8);\n        border: 1px solid black;\n        color: black;\n        display: block;\n        white-space: pre-wrap;\n        padding: .4rem .2rem;\n        width: max-content;\n        margin: 1rem 0;\n        font-size: 120%;\n    }\n    h2{\n        font-weight: 100;\n        color: white;\n        text-align: center;\n    }\n    p{\n      color: white;\n    }\n    #list{\n        margin-top: 10vh;\n    }\n    #list {\n        width: 100%;\n    }\n    .blurred{\n        filter: blur(10px);}\n    a{\n        text-decoration: none;\n        color: black;\n    }\n    .lesson{\n        color: black;\n        padding: 3rem 2rem;\n        width: 100%;\n        background-color: #F8F7F7;\n        cursor: pointer;\n    }\n    .lesson:hover, .active{\n        background-color: #444444;\n    }\n    .lesson:hover a, .active>a{\n        color: white;}\n    \n    #overlay {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        background-color: rgba(0,0,0,0.4);\n        height: 100%;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n    }\n    #wall{\n        padding: 1rem 4rem;\n        width: 50vh;\n        height: 53vh;\n        background-color: white;\n    }\n    #img{\n        height: 40rem;\n    }\n    ol>li{\n        margin-bottom: 1rem;\n    }\n\n      "]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function () { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var LessonPage = /*#__PURE__*/function (_LitElement) {
+  _inherits(LessonPage, _LitElement);
+
+  var _super = _createSuper(LessonPage);
+
+  _createClass(LessonPage, null, [{
+    key: "properties",
+    get: function get() {
+      return {
+        trial: {
+          type: Boolean,
+          reflect: true
+        }
+      };
+    }
+  }, {
+    key: "styles",
+    get: function get() {
+      return (0, _litElement.css)(_templateObject());
+    }
+  }]);
+
+  function LessonPage() {
+    var _this;
+
+    _classCallCheck(this, LessonPage);
+
+    _this = _super.call(this);
+    _this.data = [];
+    _this.lessons = [];
+    _this.currentLesson = "1.1";
+    _this.querySearch;
+    _this.topicName;
+    _this.topicId;
+    _this.trial = false;
+    _this.wall = false;
+    _this.imageUrl = "";
+    _this.content;
+    return _this;
+  }
+
+  _createClass(LessonPage, [{
+    key: "firstUpdated",
+    value: function firstUpdated() {
+      var _this2 = this;
+
+      _get(_getPrototypeOf(LessonPage.prototype), "firstUpdated", this).call(this);
+
+      this.content = this.shadowRoot.querySelector("#text");
+
+      if (localStorage.getItem('sessionId') == null) {
+        this.trial = true;
+        this.requestUpdate();
+      }
+
+      if (this.trial) {
+        this.querySearch = "1.1";
+        this.shadowRoot.querySelector("#container").addEventListener("click", function () {
+          _this2.wall = true;
+
+          var blurred = _this2.shadowRoot.querySelectorAll("h2, p, a");
+
+          var _iterator = _createForOfIteratorHelper(blurred),
+              _step;
+
+          try {
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
+              var el = _step.value;
+              el.classList.add("blurred");
+            }
+          } catch (err) {
+            _iterator.e(err);
+          } finally {
+            _iterator.f();
+          }
+
+          _this2.requestUpdate();
+        });
+      } else {
+        var urlParams = new URLSearchParams(window.location.search);
+        this.querySearch = urlParams.get('lessonId');
+        this.updateCurrentLesson();
+      }
+
+      this.getData();
+      this.requestUpdate();
+    }
+  }, {
+    key: "getData",
+    value: function () {
+      var _getData = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        var _this3 = this;
+
+        var resp;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return fetch("http://localhost:3001/lesson?lessonId=".concat(this.querySearch));
+
+              case 2:
+                resp = _context.sent;
+                _context.next = 5;
+                return resp.json();
+
+              case 5:
+                this.data = _context.sent;
+                this.topicName = this.data[0].topicName;
+                this.topicId = this.data[0].topicId;
+                this.data.map(function (lesson) {
+                  if (lesson.lessonId == _this3.querySearch) {
+                    _this3.content.innerHTML = lesson.content;
+
+                    if (_this3.content.clientHeight > _this3.content.scrollHeight) {
+                      console.log("yes");
+                    }
+                  }
+
+                  if (lesson.lessonId == _this3.querySearch && lesson.img != null) {
+                    var arrayBufferView = new Uint8Array(lesson.img.data);
+                    var blob = new Blob([arrayBufferView], {
+                      type: "image/jpeg"
+                    });
+                    var urlCreator = window.URL || window.webkitURL;
+                    _this3.imageUrl = urlCreator.createObjectURL(blob);
+                    _this3.shadowRoot.querySelector("#right").style.height = "max-content";
+                  }
+                });
+                this.requestUpdate();
+
+              case 10:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function getData() {
+        return _getData.apply(this, arguments);
+      }
+
+      return getData;
+    }()
+  }, {
+    key: "updateCurrentLesson",
+    value: function () {
+      var _updateCurrentLesson = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+        var newSesion, resp;
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                newSesion = this.querySearch.slice(0, 1) + this.querySearch.slice(2, 3) + localStorage.getItem('sessionId').slice(2);
+                localStorage.setItem('sessionId', newSesion);
+                _context2.next = 4;
+                return fetch("http://localhost:3001/updateLesson", {
+                  method: "POST",
+                  headers: {
+                    "content-type": "application/json"
+                  },
+                  body: JSON.stringify({
+                    userid: localStorage.getItem("sessionId").slice(4) / 13,
+                    currentLesson: this.querySearch
+                  })
+                });
+
+              case 4:
+                resp = _context2.sent;
+
+              case 5:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function updateCurrentLesson() {
+        return _updateCurrentLesson.apply(this, arguments);
+      }
+
+      return updateCurrentLesson;
+    }()
+  }, {
+    key: "render",
+    value: function render() {
+      var _this4 = this;
+
+      return (0, _litElement.html)(_templateObject2(), this.topicName || " ", this.topicId || " ", this.trial ? false : true, this.trial ? true : false, this.data.map(function (lesson) {
+        return (0, _litElement.html)(_templateObject3(), function () {
+          window.location.href = "lesson.html?lessonId=".concat(lesson.lessonId);
+        }, lesson.lessonId == _this4.querySearch ? "active" : undefined, lesson.lessonId, lesson.lessonName);
+      }), this.data.map(function (lesson) {
+        return (0, _litElement.html)(_templateObject4(), lesson.lessonId == _this4.querySearch ? lesson.lessonName : " ");
+      }), this.imageUrl.length > 0 ? (0, _litElement.html)(_templateObject5(), this.imageUrl) : undefined, this.wall ? (0, _litElement.html)(_templateObject6()) : undefined);
+    }
+  }]);
+
+  return LessonPage;
+}(_litElement.LitElement);
+
+exports.LessonPage = LessonPage;
+customElements.define('lesson-page', LessonPage);
+},{"lit-element":"node_modules/lit-element/lit-element.js","./nav-bar.js":"nav-bar.js","./sign-in.js":"sign-in.js","regenerator-runtime/runtime":"node_modules/regenerator-runtime/runtime.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5654,7 +6549,19 @@ Object.keys(_platformShell).forEach(function (key) {
     }
   });
 });
-},{"./login-page.js":"login-page.js","./platform-shell.js":"platform-shell.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+var _lessonPage = require("./lesson-page.js");
+
+Object.keys(_lessonPage).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _lessonPage[key];
+    }
+  });
+});
+},{"./login-page.js":"login-page.js","./platform-shell.js":"platform-shell.js","./lesson-page.js":"lesson-page.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -5682,7 +6589,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59330" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59009" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

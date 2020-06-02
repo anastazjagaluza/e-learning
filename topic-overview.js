@@ -72,13 +72,13 @@ static get styles(){
       this.topicId;
       this.topicName;
       this.lessons = [];
-      this.color = "#000000";
+      this.color = "#444444";
       this.currentLesson;
     }
 
     firstUpdated(){
         super.firstUpdated();
-        this.currentLesson = localStorage.getItem("currentLesson");
+        this.currentLesson = localStorage.getItem('sessionId').slice(0,1) + '.' + localStorage.getItem('sessionId').slice(1, 2);
         if(this.topicId == this.currentLesson.substring(0, 1)){
           this.open = true;
         }
@@ -86,9 +86,9 @@ static get styles(){
           this.finished = true;
         }
         console.log(this.lessons);
-        this.finished ? this.color = "#F8F6F6" : undefined;
+        this.finished ? this.color = "#F8F7F7" : undefined;
         this.open ? this.color = "var(--main-blue)" : undefined;
-        this.color == undefined ? this.color = "black" : undefined;
+        this.color == undefined ? this.color = "#444444" : undefined;
         this.requestUpdate();
        
     }
@@ -97,10 +97,10 @@ static get styles(){
   render() {
     return html`
     <input type="checkbox" ?checked="${this.open}" id="topic">
-    <label style="background-color: ${this.color}; ${this.finished ? `color: black` : undefined}"  for="topic">${this.topicName}</label>
+    <label style="background-color: ${this.color}; ${this.finished ? `color: #444444` : undefined}"  for="topic">${this.topicName}</label>
     ${this.lessons.length > 0 ? 
       html `<div id="lessons">${this.lessons.map(lesson=>
-             html`<a style="${lesson.lessonId==this.currentLesson ? `background-color: black; color: white` : `background-color: #F8F6F6; color: black`}" href="?lessonId=${lesson.lessonId}">${lesson.lessonName}</a>`)}</div>` : undefined}
+             html`<a style="${lesson.lessonId==this.currentLesson ? `background-color: #444444; color: white` : `background-color: #F8F7F7; color: #444444`}" href="lesson.html?lessonId=${lesson.lessonId}">${lesson.lessonName}</a>`)}</div>` : undefined}
              `;
   }
 }
